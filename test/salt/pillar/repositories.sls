@@ -6,13 +6,14 @@ apt:
   clean_sources_list_d: true
 
   repositories:
-    multimedia-stable:
-      distro: stable
-      url: http://www.deb-multimedia.org
-      arch: [amd64]
-      comps: [main]
-      keyid: 5C808C2B65558117
-      keyserver: keyserver.ubuntu.com
+    ## relies on apt-key and this is deprecated
+    # multimedia-stable:
+    #   distro: stable
+    #   url: http://www.deb-multimedia.org
+    #   arch: [amd64]
+    #   comps: [main]
+    #   keyid: 5C808C2B65558117
+    #   keyserver: keyserver.ubuntu.com
     heroku:
       distro: ./
       url: https://cli-assets.heroku.com/apt
