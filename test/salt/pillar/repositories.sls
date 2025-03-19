@@ -6,6 +6,10 @@ apt:
   clean_sources_list_d: true
 
   repositories:
+    rabbitmq:
+      unmanaged: true # do not remove this file when clean_sources_list_d=true
+      filename: rabbitmq.list # optional
+
     heroku:
       distro: ./
       url: https://cli-assets.heroku.com/apt

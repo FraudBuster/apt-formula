@@ -25,6 +25,13 @@ control 'Apt repositories' do
     its('mode') { should cmp '0755' }
   end
 
+  describe file('/etc/apt/sources.list.d/rabbitmq.list') do
+    it { should exist }
+    its(:content) do
+      should match("## unmanged list file that shouldn't be removed")
+    end
+  end
+
   describe file('/etc/apt/sources.list.d/heroku-binary.list') do
     it { should exist }
     it { should be_owned_by 'root' }
