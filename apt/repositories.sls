@@ -118,6 +118,15 @@
       - file: {{ sources_list_dir }}
       # require_in the directory clean state
       # This way, we don't remove all the files, just to add them again.
+
+    {%- if 'signed-by=' in r_opts.lower() %}
+      {%- set r_signedkey_file = (r_opts[r_opts.lower().find('signed-by=') + 10:]).split()[0] %}
+{{ r_type }} {{ repo }} {{ r_signedkey_file }}:
+  file.managed:
+    - name: {{ r_signedkey_file }}
+    - mode: '0644'
+    - replace: false
+    {% endif %}
   {%- endfor %}
 {% endfor %}
 
